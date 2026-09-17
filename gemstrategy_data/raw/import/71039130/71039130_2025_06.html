@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRADESTAT</title>
+       <script type="text/javascript">
+         function noBack() { window.history.forward() }
+         noBack();
+         window.onload = noBack;
+         window.onpageshow = function (evt) { if (evt.persisted) noBack() }
+         window.onunload = function () { void (0) }
+    </script>
+    <script type="text/javascript">
+        window.history.forward(0);
+    </script>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script> 
+  <link rel="shortcut icon" href="https://tradestat.commerce.gov.in/assets/images/favicon.png">    
+  <!-- Bootstrap CSS -->
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/all.min.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/bootstrap-select.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/fonts.min.css" rel="stylesheet">
+<!-- <link href="https://tradestat.commerce.gov.in/assets/Bootstrap/select2.min.css" rel="stylesheet"> -->
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/stackpathbootstrap.min.min.css" rel="stylesheet">
+
+ <!-- Javascript CSS --> 
+ <script src="https://tradestat.commerce.gov.in/assets/js/jquery.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/bootstrap.bundle.min.js"></script>  
+<!-- <script src="https://tradestat.commerce.gov.in/assets/js/select.min.js"></script> -->
+<script src="https://tradestat.commerce.gov.in/assets/js/bundle.min.js"></script>
+
+<!-- <script src="https://tradestat.commerce.gov.in/assets/js/select2.min.js"></script> -->
+<script src="https://tradestat.commerce.gov.in/assets/js/jquery-3.6.3.js"></script>
+<!-- foe export excel -->
+<script src="https://tradestat.commerce.gov.in/assets/js/tableToExcel.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/jquery-3.7.1.js"></script> 
+
+
+  
+  <!-- Livewire Styles --><style >[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.list-item][wire\:loading\.list-item], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none !important;}[wire\:cloak] {display: none !important;}dialog#livewire-error::backdrop {background-color: rgba(0, 0, 0, .6);}</style>
+</head>
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto;
+    background-color: #FFD580;
+    color: black;
+    text-align: center;
+    padding: 9px;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<body oncopy="return false" ondrag="return false" onselectstart="return false" ondragstart="return false"  ondragenter="return false" onpaste="return false" oncontextmenu="return false" ondragenter="return false" ondragover="return false" ondragleave="return false">
+  <!-- Header -->
+  <div class="container-fluid" style="background-color:#FEE7CE; border-width: 3px; border-color: #ffe7ce; border-style: solid;">
+    <div class="row" style="background-color:#ffe7ce; padding: 8px; color:black;">
+      <div class="col-lg-1">
+        <img src="https://tradestat.commerce.gov.in/assets/images/logo.png" alt="Logo" style="width: 70px; height: 93px; margin-left: 38px;">
+      </div>
+      <div class="col-lg-3">
+        <h4> Government of India</h4>
+        <h5> Ministry of Commerce and Industry</h5>
+        <h6> DEPARTMENT OF COMMERCE</h6>
+      </div>
+      <div class="col-lg-8">
+      <a class="btn btn-secondary"  href="https://tradestat.commerce.gov.in/eidb/commodity_wise_export"><b>EIDB</b></a>
+      <a class="btn" style="background-color:#29d; color:white;"  href="https://tradestat.commerce.gov.in/meidb/commoditywise_export" ><b>MEIDB</b></a>
+      <a class="btn btn-secondary" href="https://tradestat.commerce.gov.in/ftpa/export_commodity_group_new"><b>FTPA</b></a>
+      <a class="btn btn-secondary" href="https://tradestat.commerce.gov.in/ftspcc/export_commodity_wise"><b>FTSPCC</b></a>
+      
+      <br>
+      <a class="btn" style="background-color:#29d; color:white;">System on  India's Monthly Trade(Harmonised Classification of Commodities)</a>
+      <!-- <h4 style="padding-top: 7px;">MEIDB->System on  India's Monthly Trade(Harmonised Classification of Commodities)</h4> -->
+      
+      <!-- <h6>(Harmonised Classification of Commodities)</h6> -->
+     <p style="padding-top: 10px;">Data available:Jan 2018 to     Jun 2026 ((R) Revised Final upto Mar 2026, (F) Final upto&nbsp;Jun 2026)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      Data last updated on: 13/08/2026</p>
+      </div>
+
+      
+    </div>
+  </div>
+  <!-- Body -->
+  <section class="border">
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-md-7">
+          <label class="mt-2"><h6><b>Trade Type: </b></h6></label> &nbsp; 
+          
+          <a href="https://tradestat.commerce.gov.in/meidb/commoditywise_export" class="btn btn-secondary mt-2">EXPORTS</a>
+          <a href="https://tradestat.commerce.gov.in/meidb/commoditywise_import" class="btn mt-2" style="background-color:#29d; color:white;">IMPORTS</a>          
+        </div>
+        <div class="col-md-3 mt-2" id="exportdropdown" style="display: flex;">
+          <label class="mt-2"><h6><b>Reports: </b></h6></label> &nbsp;  &nbsp;
+          <div class="dropdown" style="width: 100%; max-width: 300px; margin-left: 0px; ">
+            
+            <button type="button" class="btn btn-info btn-md dropdown-toggle d-flex justify-content-between" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#29d; color:white;">
+                            Commodity-wise all Countries
+                          </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">              
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/commoditywise_import">Commodity-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/principal_commodity_wise_all_HSCode_import">Principal commodity wise all HSCode</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/commodity_wise_all_countries_import">Commodity-wise all Countries</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_import">Country-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_all_commodities_import">Country-wise all Commodities</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_principal_commoditywiseall_hscode_import">Country-wise Principal commodity wise all HSCode</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_import">Region-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_all_countries_import">Region-wise all Countries</a></li>             
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_all_commodities_import">Region-wise all Commodities</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/predefined_group_of_countries_import">Predefined Group of Countries</a></li>             
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/customised_group_of_countries_import">Customised Group of Countries</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </section> 
+  <div class="container-fluid">
+    <style type="text/css">
+        /* Absolute Center Spinner */
+        .loading {
+            position: fixed;
+            z-index: 999;
+            height: 2em;
+            width: 2em;
+            overflow: show;
+            margin: auto;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        /* Transparent Overlay */
+        .loading:before {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+
+            background: -webkit-radial-gradient(rgba(20, 20, 20, .8), rgba(0, 0, 0, .8));
+        }
+
+        /* :not(:required) hides these rules from IE9 and below */
+        .loading:not(:required) {
+            /* hide "loading..." text */
+            font: 0/0 a;
+            color: transparent;
+            text-shadow: none;
+            background-color: transparent;
+            border: 0;
+        }
+
+        .loading:not(:required):after {
+            content: '';
+            display: block;
+            font-size: 10px;
+            width: 1em;
+            height: 1em;
+            margin-top: -0.5em;
+            -webkit-animation: spinner 150ms infinite linear;
+            -moz-animation: spinner 150ms infinite linear;
+            -ms-animation: spinner 150ms infinite linear;
+            -o-animation: spinner 150ms infinite linear;
+            animation: spinner 150ms infinite linear;
+            border-radius: 0.5em;
+            -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+            box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) 0 1.5em 0 0, rgba(255, 255, 255, 0.75) -1.1em 1.1em 0 0, rgba(255, 255, 255, 0.75) -1.5em 0 0 0, rgba(255, 255, 255, 0.75) -1.1em -1.1em 0 0, rgba(255, 255, 255, 0.75) 0 -1.5em 0 0, rgba(255, 255, 255, 0.75) 1.1em -1.1em 0 0;
+        }
+
+        /* Animation */
+
+        @-webkit-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-moz-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-o-keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        td {
+            text-align: right;
+        }
+    </style>
+    <div id="loadingModal" style="display: none;">
+        <div class="loading">Loading&#8230;</div>
+        <div class="content"></div>
+
+    </div>
+
+
+    <script>
+        function openLoader() {
+            document.getElementById("loadingModal").style.display = "block";
+        }
+    </script>
+
+    <div class="row ">
+        <div class="col-md-12 text-center">
+            <h5><b>Import :: Commodity wise all Countries</b></h5>
+        </div>
+    </div>
+    <form method="POST" action="https://tradestat.commerce.gov.in/meidb/commodity_wise_all_countries_import" onsubmit="openLoader()">
+        <input type="hidden" name="_token" value="7lvnGNyjFaKrrwko9iTSYRWDXAxOX6ZNttTFCA3d" autocomplete="off">        <div class="row">
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <label class="mt-2">
+                    <h6>HS&nbsp;Code:</h6>
+                </label>&nbsp;
+                                <input type="search" name="cwacimHSCODE" id="cwacimHSCODE" wire:model="cwacimHSCODE" value="71039130" maxLength="8" class="form-control rounded" placeholder="HS CODE" aria-label="Search" aria-describedby="search-addon" required onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" />&nbsp;&nbsp;
+                <!-- <button type="button"  class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Search&nbsp;Hscode
+</button> -->
+                                
+                <span class="input-group-text border-0"
+                    id="search-addon"
+                    style="background-color:#ffffff; cursor: pointer;"
+                    wire:click="toggleVisibility">
+                    <!-- <i class="fas fa-search"></i> -->
+                </span>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                
+                                <br>                
+                <button type="button"  class="btn btn-link mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Search&nbsp;Hscode
+</button>
+                                
+                
+            </div>
+
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <label class="mt-2">
+                    <h6>Month:</h6>
+                </label>&nbsp;
+                <select class="form-select" name="cwacimMonth" id="cwacimMonth" required>
+                    
+                                                            <option value="1" >
+                            January
+                        </option>
+                                                                                <option value="2" >
+                            February
+                        </option>
+                                                                                <option value="3" >
+                            March
+                        </option>
+                                                                                <option value="4" >
+                            April
+                        </option>
+                                                                                <option value="5" >
+                            May
+                        </option>
+                                                                                <option value="6"  selected >
+                            June
+                        </option>
+                                                                                <option value="7" >
+                            July
+                        </option>
+                                                                                <option value="8" >
+                            August
+                        </option>
+                                                                                <option value="9" >
+                            September
+                        </option>
+                                                                                <option value="10" >
+                            October
+                        </option>
+                                                                                <option value="11" >
+                            November
+                        </option>
+                                                                                <option value="12" >
+                            December
+                        </option>
+                                    
+                    
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <label class="mt-2">
+                    <h6>Year:</h6>
+                </label>&nbsp;
+                <select class="form-select" name="cwacimYear" id="cwacimYear" required>
+                                                                <option value="2026" >2026</option>
+                                                                                    <option value="2025"  selected >2025</option>
+                                                                                    <option value="2024" >2024</option>
+                                                                                    <option value="2023" >2023</option>
+                                                                                    <option value="2022" >2022</option>
+                                                                                    <option value="2021" >2021</option>
+                                                                                    <option value="2020" >2020</option>
+                                                                                    <option value="2019" >2019</option>
+                                                                                    <option value="2018" >2018</option>
+                                                        </select>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <label class="mt-2">
+                    <h6>Values&nbsp;in:</h6>
+                </label>&nbsp;
+                <select class="form-select" id="cwacimReportVal" name="cwacimReportVal" required>
+                                        <option value="1">
+                        US $ Million</option>
+                                        <option value="1">US $ Million</option>
+                    <option value="3">₹ Crore</option>
+                    
+                    <option value="2">Quantity</option>
+                </select>
+            </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+                <label class="mt-2">
+                    <h6>Year&nbsp;Type:</h6>
+                </label>&nbsp;
+                <select class="form-select" id="cwacimReportYear" name="cwacimReportYear" required>
+                                        <option value="1"
+                        >
+                        Financial Year</option>
+                                        <option value="1">Financial Year</option>
+                    <option value="2">Calendar Year</option>
+                    
+                </select>
+            </div>
+            <div class="row text-center">
+            <div class="col-sm-12">
+                <center>
+                    <button type="submit" class="btn mt-4" style="background: #29d; color: #fff;">Submit</button>
+                </center>
+            </div>
+
+            </div>
+            <!-- <div class="col-md-1 text-right">        
+        <button type="button" class="btn" style="background: #29d; color: #fff;" id="btnExport" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Excel
+            </button>
+         <button class="btn" style="background: #29d; color: #fff;" type="button" onclick="window.print()">
+            Print
+        </button> 
+    </div> -->
+        </div>
+    </form>
+    <br>
+    <div class="row">
+        <div class="col-md-12 table-responsive">
+            <script>
+  $(document).ready(function () {
+    var table = $('#example1').DataTable({
+      responsive: true,
+      lengthChange: true,
+       pageLength: 10,          // default rows per page
+    lengthMenu: [10, 25, 50, 100, 500, 1000],
+
+      
+      autoWidth: false,
+      buttons: [{
+        extend: 'excel',
+        footer: true,
+        title: 'TradeStat->Meidb->Import->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million', 
+      },
+      {
+        extend: 'pdf',
+        footer: true,
+        title: 'TradeStat->Meidb->Import->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million',
+         orientation: 'landscape', 
+      },
+       {
+        extend: 'print',
+        footer: true,
+        title: 'TradeStat->Meidb->Import->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million', 
+      }]
+    });
+
+    table.buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  });
+</script>
+<!-- Bootstrap 5.3 CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://tradestat.commerce.gov.in/assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- DataTables CSS for Bootstrap 5 -->
+  <link href="https://tradestat.commerce.gov.in/assets/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="https://tradestat.commerce.gov.in/assets/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
+  <script src="https://tradestat.commerce.gov.in/assets/js/jquery.dataTables.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://tradestat.commerce.gov.in/assets/js/dataTables.buttons.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.bootstrap5.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.html5.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.print.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.colVis.min.js"></script>
+
+<!-- JSZip and pdfmake (for Excel/PDF export) -->
+<script src="https://tradestat.commerce.gov.in/assets/js/jszip.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/pdfmake.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/vfs_fonts.js"></script>
+<p style="color:red;">* ITC HS Code of the Commodity is either dropped or re-allocated and the unit of the commodity may be changed from April 2026.</p>
+
+<div class="row">
+    <div class="col-md-6"><p><b>Commodity:&nbsp;71039130&nbsp;EMERALDS&nbsp;Unit:&nbsp;CTM</b></p></div>
+    <div class="col-md-6">
+
+
+<p style="text-align: right;"><b>Report Dated: 21 Aug 2026&nbsp;||&nbsp;                    
+                       Values in US $ Million ||
+                                           (R) Revised Final
+                    
+                                        (R) Revised Final
+                    </b>
+                </p>
+                </div>
+</div>
+
+<table id="example1"  class="table table-bordered border-primary"  style="width:100%">
+    <thead>
+        <tr style="background: #29d; text-align:center; color: #fff;">
+                        <th>S.No.</th>
+                        <th>Country</th>
+                        <th>Jun-2024
+                                                (R) 
+                                            </th>
+                        <th>Jun-2025
+                                                (R) 
+                                            </th>
+                        <th>%Growth</th>
+                                                <th>Apr-Jun2024
+                                                (R) 
+                                            </th>
+                        <th>Apr-Jun2025
+                                                (R) 
+                                            </th>
+                                                <th>%Growth</th>
+                    </tr>
+
+    </thead>
+    <tbody>
+                                        <tr>
+                    <td style="text-align:center;">1</td>
+                    <td style="text-align:left;">AUSTRALIA</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">2</td>
+                    <td style="text-align:left;">BAHARAIN IS</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.02                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">3</td>
+                    <td style="text-align:left;">BELGIUM</td>
+                                        <td>0.02</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.36                    </td>
+                    <td>
+                        0.14                    </td>
+                    <td>
+                        -61.24                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">4</td>
+                    <td style="text-align:left;">CANADA</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        4,737.50                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        96.54                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">5</td>
+                    <td style="text-align:left;">CHINA P RP</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        285.20                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        8.96                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">6</td>
+                    <td style="text-align:left;">COLOMBIA</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.16                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">7</td>
+                    <td style="text-align:left;">FRANCE</td>
+                                        <td>0.00</td>
+                    <td>0.38</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.44                    </td>
+                    <td>
+                        0.69                    </td>
+                    <td>
+                        57.54                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">8</td>
+                    <td style="text-align:left;">GERMANY</td>
+                                        <td>0.00</td>
+                    <td>0.30</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.25                    </td>
+                    <td>
+                        0.31                    </td>
+                    <td>
+                        20.43                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">9</td>
+                    <td style="text-align:left;">HONG KONG</td>
+                                        <td>4.39</td>
+                    <td>6.74</td>
+                    <td>
+                        53.70                    </td>
+                    <td>
+                        6.65                    </td>
+                    <td>
+                        8.69                    </td>
+                    <td>
+                        30.61                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">10</td>
+                    <td style="text-align:left;">ISRAEL</td>
+                                        <td>0.01</td>
+                    <td>0.00</td>
+                    <td>
+                        -83.38                    </td>
+                    <td>
+                        0.02                    </td>
+                    <td>
+                        0.03                    </td>
+                    <td>
+                        107.67                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">11</td>
+                    <td style="text-align:left;">ITALY</td>
+                                        <td>0.00</td>
+                    <td>0.02</td>
+                    <td>
+                        17,498.43                    </td>
+                    <td>
+                        0.18                    </td>
+                    <td>
+                        0.07                    </td>
+                    <td>
+                        -63.14                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">12</td>
+                    <td style="text-align:left;">JAPAN</td>
+                                        <td>0.01</td>
+                    <td>0.00</td>
+                    <td>
+                        -92.96                    </td>
+                    <td>
+                        0.01                    </td>
+                    <td>
+                        0.22                    </td>
+                    <td>
+                        1,739.90                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">13</td>
+                    <td style="text-align:left;">MEXICO</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">14</td>
+                    <td style="text-align:left;">NETHERLAND</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">15</td>
+                    <td style="text-align:left;">SINGAPORE</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.02                    </td>
+                    <td>
+                        1,745.67                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">16</td>
+                    <td style="text-align:left;">SOUTH AFRICA</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.05                    </td>
+                    <td>
+                        0.03                    </td>
+                    <td>
+                        -28.50                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">17</td>
+                    <td style="text-align:left;">SPAIN</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.03                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">18</td>
+                    <td style="text-align:left;">SRI LANKA DSR</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        1,156.25                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        1,632.29                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">19</td>
+                    <td style="text-align:left;">SWAZILAND</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.16                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">20</td>
+                    <td style="text-align:left;">SWITZERLAND</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        6.15                    </td>
+                    <td>
+                        7.06                    </td>
+                    <td>
+                        14.82                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">21</td>
+                    <td style="text-align:left;">TAIWAN</td>
+                                        <td>0.00</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                        0.01                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">22</td>
+                    <td style="text-align:left;">THAILAND</td>
+                                        <td>0.40</td>
+                    <td>0.79</td>
+                    <td>
+                        97.33                    </td>
+                    <td>
+                        2.73                    </td>
+                    <td>
+                        3.09                    </td>
+                    <td>
+                        13.12                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:left;">TURKEY</td>
+                                        <td>0.02</td>
+                    <td>0.01</td>
+                    <td>
+                        -43.70                    </td>
+                    <td>
+                        0.04                    </td>
+                    <td>
+                        0.02                    </td>
+                    <td>
+                        -44.16                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:left;">U ARAB EMTS</td>
+                                        <td>0.04</td>
+                    <td>0.01</td>
+                    <td>
+                        -61.32                    </td>
+                    <td>
+                        0.65                    </td>
+                    <td>
+                        0.24                    </td>
+                    <td>
+                        -63.07                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">25</td>
+                    <td style="text-align:left;">U K</td>
+                                        <td>0.10</td>
+                    <td>0.30</td>
+                    <td>
+                        214.49                    </td>
+                    <td>
+                        0.19                    </td>
+                    <td>
+                        0.53                    </td>
+                    <td>
+                        176.06                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">26</td>
+                    <td style="text-align:left;">U S A</td>
+                                        <td>2.24</td>
+                    <td>1.82</td>
+                    <td>
+                        -18.64                    </td>
+                    <td>
+                        4.78                    </td>
+                    <td>
+                        3.68                    </td>
+                    <td>
+                        -22.97                    </td>
+                                        
+
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">27</td>
+                    <td style="text-align:left;">UNSPECIFIED</td>
+                                        <td>0.05</td>
+                    <td>0.00</td>
+                    <td>
+                        -                     </td>
+                    <td>
+                        0.05                    </td>
+                    <td>
+                        0.00                    </td>
+                    <td>
+                         -                     </td>
+                                        
+
+                </tr>
+                                                <tfoot>
+                    <tr>
+                    <td></td>
+                    <td style="text-align:left;"><strong>Total</strong></td>
+                    <td align=right><strong>7.27</strong></td>
+                    <td align=right><strong>10.39</strong></td>
+                    <td align=right><strong>
+                        43.01</strong></td>
+                    <td align=right><strong>22.88</strong></td>
+                    <td align=right><strong>24.89</strong></td>
+                    <td align=right><strong>
+                        8.78</strong></td>
+                </tr>
+                </tfoot>
+
+    </tbody>
+</table>
+
+
+<br>
+
+
+
+        </div>
+    </div>
+    
+           <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">HS Code Search</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+            <div class="row" >
+                <div class="col-md-5">
+                    <label>HS Code:</label>
+                    <input type="text" id="hscode_value" class="form-control" name="hscode_value" placeholder="Enter HS Code" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" maxlength="8">
+                </div>
+                <div class="col-md-5">
+                    <label>Description:</label>
+                    <input type="text" id="description_value" class="form-control" name="description_value" placeholder="Enter Description">
+                </div>
+                <div class="col-md-2">
+                    <br>                    
+                    <button type="button" id="hscode_fetch"  class="btn btn-primary">Search</button>
+                </div>
+                <p style="color:red;">* ITC HS Code of the Commodity is either dropped or re-allocated and the unit of the commodity may be changed from April 2026.</p>
+                <div id="data"></div>
+
+                
+            </div>
+               
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<meta name="csrf-token" content="7lvnGNyjFaKrrwko9iTSYRWDXAxOX6ZNttTFCA3d">
+<script type="text/javascript">
+$(document).on('click', '#hscode_fetch', function (e) {
+    e.preventDefault();
+
+    // First get new token
+    $.get('/refresh-csrf', function(res) {
+
+        $.ajax({
+            url: "https://tradestat.commerce.gov.in/meidb/hscode",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': res.token
+            },
+            data: {
+                _token: res.token,
+                hscode: $('#hscode_value').val(),
+                description: $('#description_value').val()
+            },
+            success: function(response) {
+
+    $('#data').empty();
+
+    if (!response || response.length === 0) {
+        $('#data').html(
+            '<div class="alert alert-warning">No records found.</div>'
+        );
+        return;
+    }
+
+    let html = '<table class="table table-bordered">';
+    html += '<tr><th>HSCode</th><th>Unit</th><th>Description</th></tr>';
+
+    $.each(response, function(i, item) {
+        html += '<tr>';
+        html += '<td style="text-align:left;">' + item.HSCODE + '</td>';
+        html += '<td style="text-align:left;">' + item.UNIT + '</td>';
+        html += '<td style="text-align:left;">' + item.DESCRiption + '</td>';
+        html += '</tr>';
+    });
+
+    html += '</table>';
+
+    $('#data').html(html);
+}
+        });
+
+    });
+
+});
+</script>
+
+    
+     
+    <script>
+        function isNumeric(keyCode) {
+        if (keyCode == 16)
+            //NumLock = false;
+            isShift = true;
+        return ((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode == 46 || (keyCode >= 96 && keyCode <= 105))
+    }
+    $(document).ready(function () {
+        $("#btnExport").click(function () {
+            let table = document.getElementsByTagName("table");
+            //console.log(table);
+            //debugger;
+            TableToExcel.convert(table[0], {
+                name: `meidb-Commoditywise-all-countries-import.xlsx`,
+                sheet: {
+                    name: 'meidb-Commoditywise-all-countries-import'
+                }
+            });
+        });
+    });
+</script> 
+
+</div>
+  
+  <div class="container-fluid" style=" margin-top: auto; background-color: white; color: white; text-align: center;padding-top: 10px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-12">        
+<button type="button" class="btn btn-link"   id="liveAlertBtn">Data Source</button>
+<button type="button" class="btn btn-link"  id="Metadata">Metadata on DGCI&S</button>
+<button type="button" class="btn btn-link"  id="Ownership">Ownership</button>
+<button type="button" class="btn btn-link"  id="feedback">feedback</button>
+<button type="button" class="btn btn-link"  id="Disclaimer">Disclaimer</button>
+<button type="button" class="btn btn-link"  id="help">help</button>
+<div id="liveAlertPlaceholder"></div>
+<script type="text/javascript">
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+const appendAlert = (message, type) => {
+  // Clear any existing alert before adding a new one
+  alertPlaceholder.innerHTML = '';
+
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = `
+    <div style="background-color: white; color: black;" class="alert alert-${type} alert-dismissible" role="alert">
+      <div style="background-color: white; color: black; text-align: left;">${message}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  `;
+
+  alertPlaceholder.append(wrapper);
+};
+
+const alertTrigger = document.getElementById('liveAlertBtn');
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('<b>Data Source:</b>&nbsp;DGCI&S, Kolkata (<a href="https://www.dgciskol.gov.in" target="_blank">https://www.dgciskol.gov.in)</a>', 'success');
+  });
+}
+
+
+const alertMetadata = document.getElementById('Metadata')
+if (alertMetadata) {
+  alertMetadata.addEventListener('click', () => {
+    appendAlert('<b>Metadata on DGCI&S:</b>&nbsp;(<a href="https://www.dgciskol.gov.in/writereaddata/Downloads/20251010175904NMDS.pdf" target="_blank">https://www.dgciskol.gov.in/writereaddata/Downloads/20251010175904NMDS.pdf </a>)', 'success')
+  })
+}
+const alertOwnership = document.getElementById('Ownership')
+if (alertOwnership) {
+  alertOwnership.addEventListener('click', () => {
+    appendAlert('<b>Ownership :</b> Website belongs to Department of Commerce. Designed ,Developed & Hosted by National Informatics Centre', 'success')
+  })
+}
+const alertfeedback = document.getElementById('feedback')
+if (alertfeedback) {
+  alertfeedback.addEventListener('click', () => {
+    appendAlert('<b>Feedback/Suggestions:</b> itcell-doc[at]gov[dot]in', 'success')
+  })
+}
+
+const alertDisclaimer = document.getElementById('Disclaimer')
+if (alertDisclaimer) {
+  alertDisclaimer.addEventListener('click', () => {
+    appendAlert('<b>Disclaimer:</b> The data refrenced in the system do not have any legal sanctity and is for general refrence only. The user may like to verify official publications for DGCI&S, Kolkata for any further refrence', 'success')
+  })
+}
+
+const alerthelp = document.getElementById('help')
+const note = `NOTE: 1. Following are clarifications for ITC HS Code and UNIT of commodities:<br>
+
+           (a) ITC HS Code of the Commodity is from latest HS Code Directory provided by DGCIS Kolkata on April 2024.<br>
+
+           (b) The UNIT of the commodity may be changed from April 2024 onward (e.g. If the unit of a commodity is KGS in April 2024, it might be TON before the April 2024)<br>
+
+           (c) Unit of commodity is available only at 8 digit level.<br>
+
+           (d) The old HS Code may be either dropped or re-allocated.<br>
+
+           (e).Commodity Description prefixed with * represents that the commodity is dropped from HS Code Directory from April 2024.onwards.<br><br>
+
+           2. India’s Imports/Exports include re-imports/re-exports also.<br><br>
+
+           3. Imports/Exports from unspecified country includes<br>
+
+           (a) Trade transactions where country of origin/consignment/destination is not specified or invalid country codes have been assigned in the customs declaration.<br>
+
+           (b) All re-imported/re-exported transactions which fulfill condition (a) above.<br><br>
+
+           4.Search Specific Commodity: Click on Search link<br><br>
+
+           5.Search on HS Code:<br>
+
+           (a) For Searching all HS Code and Commodities under a 2 digit code, enter desired 2 digit code and click Submit button.<br>
+
+           (b) For Searching all HS Code and Commodities under a 4 digit code, enter desired 4 digit code and click Submit button.<br>
+
+           (c) For Searching all HS Code and Commodities under a 6 digit code, enter desired 6 digit code and click Submit button.<br><br>
+
+           6.Search on Description: For searching any commodity, enter a string (3 or more characters) in the description field and click the Submit button. All commodities with their HS Code which contains the given string in their description will be displayed.`;
+if (alerthelp) {
+  alerthelp.addEventListener('click', () => {
+    appendAlert(note, 'success')
+  })
+}
+</script>
+      </div>
+      
+    </div>
+  </div>
+
+  <script >
+    console.warn('Livewire: The published Livewire assets are out of date\n See: https://livewire.laravel.com/docs/installation#publishing-livewires-frontend-assets')
+</script>
+<script src="https://tradestat.commerce.gov.in/vendor/livewire/livewire.min.js?id=0f6341c0"   data-csrf="7lvnGNyjFaKrrwko9iTSYRWDXAxOX6ZNttTFCA3d" data-module-url="https://tradestat.commerce.gov.in/livewire-da76d7be" data-update-uri="https://tradestat.commerce.gov.in/livewire-da76d7be/update" data-navigate-once="true"></script>
+</body>
+</html>
+

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRADESTAT</title>
+       <script type="text/javascript">
+         function noBack() { window.history.forward() }
+         noBack();
+         window.onload = noBack;
+         window.onpageshow = function (evt) { if (evt.persisted) noBack() }
+         window.onunload = function () { void (0) }
+    </script>
+    <script type="text/javascript">
+        window.history.forward(0);
+    </script>
+    <script type="text/javascript">
+        function preventBack() { window.history.forward(); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script> 
+  <link rel="shortcut icon" href="https://tradestat.commerce.gov.in/assets/images/favicon.png">    
+  <!-- Bootstrap CSS -->
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/all.min.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/bootstrap-select.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/fonts.min.css" rel="stylesheet">
+<!-- <link href="https://tradestat.commerce.gov.in/assets/Bootstrap/select2.min.css" rel="stylesheet"> -->
+<link href="https://tradestat.commerce.gov.in/assets/Bootstrap/stackpathbootstrap.min.min.css" rel="stylesheet">
+
+ <!-- Javascript CSS --> 
+ <script src="https://tradestat.commerce.gov.in/assets/js/jquery.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/bootstrap.bundle.min.js"></script>  
+<!-- <script src="https://tradestat.commerce.gov.in/assets/js/select.min.js"></script> -->
+<script src="https://tradestat.commerce.gov.in/assets/js/bundle.min.js"></script>
+
+<!-- <script src="https://tradestat.commerce.gov.in/assets/js/select2.min.js"></script> -->
+<script src="https://tradestat.commerce.gov.in/assets/js/jquery-3.6.3.js"></script>
+<!-- foe export excel -->
+<script src="https://tradestat.commerce.gov.in/assets/js/tableToExcel.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/jquery-3.7.1.js"></script>
+
+  
+
+</head>
+<style>
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    margin-top: auto;
+    background-color: #FFD580;
+    color: black;
+    text-align: center;
+    padding: 9px;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+</style>
+
+<body oncopy="return false" ondrag="return false" onselectstart="return false" ondragstart="return false"  ondragenter="return false" onpaste="return false" oncontextmenu="return false" ondragenter="return false" ondragover="return false" ondragleave="return false">
+  <!-- Header -->
+  <div class="container-fluid" style="background-color:#FEE7CE; border-width: 3px; border-color: #ffe7ce; border-style: solid;">
+  <div class="row" style="background-color:#ffe7ce; padding: 8px; color:black;">
+      <div class="col-lg-1">
+        <img src="https://tradestat.commerce.gov.in/assets/images/logo.png" alt="Logo" style="width: 70px; height: 93px; margin-left: 38px;">
+      </div>
+      <div class="col-lg-3">
+        <h4> Government of India</h4>
+        <h5> Ministry of Commerce and Industry</h5>
+        <h6> DEPARTMENT OF COMMERCE</h6>
+      </div>
+      <div class="col-lg-8">
+      <a class="btn btn-secondary"  href="https://tradestat.commerce.gov.in/eidb/commodity_wise_export"><b>EIDB</b></a>
+      <a class="btn" style="background-color:#29d; color:white;"  href="https://tradestat.commerce.gov.in/meidb/commoditywise_export" ><b>MEIDB</b></a>
+      <a class="btn btn-secondary" href="https://tradestat.commerce.gov.in/ftpa/export_commodity_group_new"><b>FTPA</b></a>
+      <a class="btn btn-secondary" href="https://tradestat.commerce.gov.in/ftspcc/export_commodity_wise"><b>FTSPCC</b></a>
+      
+      <br>
+      <a class="btn" style="background-color:#29d; color:white;">System on  India's Monthly Trade(Harmonised Classification of Commodities)</a>
+      <!-- <h4 style="padding-top: 7px;">MEIDB->System on  India's Monthly Trade(Harmonised Classification of Commodities)</h4> -->
+      
+      <!-- <h6>(Harmonised Classification of Commodities)</h6> -->
+     <p style="padding-top: 10px;">Data available:Jan 2018 to     Jun 2026 ((R) Revised Final upto Mar 2026, (F) Final upto&nbsp;Jun 2026)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+      Data last updated on: 13/08/2026</p>
+      </div>
+     
+    </div>
+  </div>
+  <!-- Body -->
+  <section class="border">
+    <div class="container-fluid" >
+      <div class="row">
+        <div class="col-md-7">
+          <label class="mt-2"><h6><b>Trade Type: </b></h6></label> &nbsp; 
+          
+          <a href="https://tradestat.commerce.gov.in/meidb/commoditywise_export" class="btn mt-2" style="background-color:#29d; color:white;">EXPORTS</a>
+          <a href="https://tradestat.commerce.gov.in/meidb/commoditywise_import" class="btn   btn-secondary mt-2 ">IMPORTS</a>          
+        </div>
+        <div class="col-md-3 mt-2" id="exportdropdown" style="display: flex;">
+          <label class="mt-2"><h6><b>Reports: </b></h6></label> &nbsp;  &nbsp;
+          <div class="dropdown" style="width: 100%; max-width: 300px; margin-left: 0px; ">
+            
+            <button type="button" class="btn btn-primary btn-md dropdown-toggle d-flex justify-content-between" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#29d; color:white;">
+                            Commodity-wise all Countries
+                          </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">              
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/commoditywise_export">Commodity-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/principal_commodity_wise_all_HSCode_export">Principal commodity wise all HSCode</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/commodity_wise_all_countries_export">Commodity-wise all Countries</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_export">Country-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_all_commodities_export">Country-wise all Commodities</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/country_wise_principal_commoditywiseall_hscode_export">Country-wise Principal commodity wise all HSCode</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_export">Region-wise</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_all_countries_export">Region-wise all Countries</a></li>             
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/region_wise_all_commodities_export">Region-wise all Commodities</a></li>
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/predefined_group_of_countries_export">Predefined Group of Countries</a></li>             
+              <li><a class="dropdown-item" href="https://tradestat.commerce.gov.in/meidb/customised_group_of_countries_export">Customised Group of Countries</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-12 text-center">
+            <h5><b>Export :: Commodity wise all Countries</b></h5>
+        </div>
+    </div>
+    <form method="POST" action="https://tradestat.commerce.gov.in/meidb/commodity_wise_all_countries_export" onsubmit="openLoader()">
+        <input type="hidden" name="_token" value="QjI0CKQC184RMkYepRsUPcRmHYCNjhjmWVJJicVV" autocomplete="off">    <div class="row">
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            <label class="mt-2">
+                <h6>HS&nbsp;Code:</h6>
+            </label>&nbsp;
+                        <input type="search" name="cwacexHSCODE" id="cwacexHSCODE" wire:model="cwacexHSCODE" maxLength="8" value="71012200" class="form-control rounded" placeholder="HS&nbsp;Code" aria-label="Search" aria-describedby="search-addon" required onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)"  />&nbsp;&nbsp;
+                <!-- <button type="button"  class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Search&nbsp;Hscode
+</button> -->
+                        
+                <span class="input-group-text border-0"
+                    id="search-addon"
+                    style="background-color:#ffffff; cursor: pointer;"
+                    wire:click="toggleVisibility">
+                    <!-- <i class="fas fa-search"></i> -->
+                </span>            
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            
+                        <br>
+                <button type="button"  class="btn btn-link mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Search&nbsp;Hscode
+</button>
+                        
+                <span class="input-group-text border-0"
+                    id="search-addon"
+                    style="background-color:#ffffff; cursor: pointer;"
+                    wire:click="toggleVisibility">
+                    <!-- <i class="fas fa-search"></i> -->
+                </span>            
+        </div>
+        
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            <label class="mt-2">
+                <h6>Month:</h6>
+            </label>&nbsp;
+            <select class="form-select" name="cwacexMonth" id="cwacexMonth" required>
+                
+                                                            <option value="1"  selected >
+                            January
+                        </option>
+                                                                                <option value="2" >
+                            February
+                        </option>
+                                                                                <option value="3" >
+                            March
+                        </option>
+                                                                                <option value="4" >
+                            April
+                        </option>
+                                                                                <option value="5" >
+                            May
+                        </option>
+                                                                                <option value="6" >
+                            June
+                        </option>
+                                                                                <option value="7" >
+                            July
+                        </option>
+                                                                                <option value="8" >
+                            August
+                        </option>
+                                                                                <option value="9" >
+                            September
+                        </option>
+                                                                                <option value="10" >
+                            October
+                        </option>
+                                                                                <option value="11" >
+                            November
+                        </option>
+                                                                                <option value="12" >
+                            December
+                        </option>
+                                                    
+            </select>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            <label class="mt-2">
+                <h6>Year:</h6>
+            </label>&nbsp;
+            <select class="form-select" name="cwacexYear" id="cwacexYear" required>
+                                                            <option value="2026" >2026</option>
+                                                                                    <option value="2025" >2025</option>
+                                                                                    <option value="2024" >2024</option>
+                                                                                    <option value="2023" >2023</option>
+                                                                                    <option value="2022"  selected >2022</option>
+                                                                                    <option value="2021" >2021</option>
+                                                                                    <option value="2020" >2020</option>
+                                                                                    <option value="2019" >2019</option>
+                                                                                    <option value="2018" >2018</option>
+                                                        
+            </select>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            <label class="mt-2">
+                <h6>Values&nbsp;in:</h6>
+            </label>&nbsp;
+            <select class="form-select" id="cwacexReportVal" name="cwacexReportVal" required>
+                                <option value="1" >US $ Million</option>
+                
+                                <option value="1">US $ Million</option>
+                
+                <option value="3">₹ Crore</option>
+                
+                <option value="2">Quantity</option>
+            </select>
+        </div>
+        <div class="col-sm-12 col-md-2 col-lg-2">
+            <label class="mt-2">
+                <h6>Year&nbsp;Type:</h6>
+            </label>&nbsp;
+            <select class="form-select" id="cwacexReportYear" name="cwacexReportYear" required>
+                                <option value="1" >Financial Year</option>                
+                                <option value="1">Financial Year</option>                
+                <option value="2">Calendar Year</option>
+                
+            </select>
+        </div>
+        <div class="row text-center">
+        <div class="col-sm-12">
+            <center>
+        <button type="submit" class="btn mt-4" style="background: #29d; color: #fff;">Submit</button>
+        </center>
+        </div>
+        </div>
+        <!-- <div class="col-md-1 text-right">        
+        <button type="button" class="btn" style="background: #29d; color: #fff;" id="btnExport" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Excel
+            </button>
+         <button class="btn" style="background: #29d; color: #fff;" type="button" onclick="window.print()">
+            Print
+        </button> 
+    </div> -->
+    </div>
+</form>
+    <br>
+        <div class="row">
+        <div class="col-md-12">
+            <script>
+  $(document).ready(function () {
+    var table = $('#example1').DataTable({
+      responsive: true,
+      lengthChange: true,
+       pageLength: 10,          // default rows per page
+    lengthMenu: [10, 25, 50, 100, 500, 1000],
+
+      
+      autoWidth: false,
+      buttons: [{
+        extend: 'excel',
+        footer: true,
+        title: 'TradeStat->Meidb->Export->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million', 
+      },
+      {
+        extend: 'pdf',
+        footer: true,
+        title: 'TradeStat->Meidb->Export->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million',
+         orientation: 'landscape', 
+      },
+       {
+        extend: 'print',
+        footer: true,
+        title: 'TradeStat->Meidb->Export->Commoditywise-all-countries',
+        messageTop: 'Report Generated on: ' + new Date().toLocaleDateString() + ' - Values in US $ Million',  
+      }]   
+  });
+
+    table.buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  });
+</script>
+<!-- Bootstrap 5.3 CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="https://tradestat.commerce.gov.in/assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- DataTables CSS for Bootstrap 5 -->
+  <link href="https://tradestat.commerce.gov.in/assets/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+  <link href="https://tradestat.commerce.gov.in/assets/css/buttons.bootstrap5.min.css" rel="stylesheet">
+
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.bootstrap5.min.css">
+  <script src="https://tradestat.commerce.gov.in/assets/js/jquery.dataTables.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/dataTables.bootstrap5.min.js"></script>
+
+<script src="https://tradestat.commerce.gov.in/assets/js/dataTables.buttons.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.bootstrap5.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.html5.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.print.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/buttons.colVis.min.js"></script>
+
+<!-- JSZip and pdfmake (for Excel/PDF export) -->
+<script src="https://tradestat.commerce.gov.in/assets/js/jszip.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/pdfmake.min.js"></script>
+<script src="https://tradestat.commerce.gov.in/assets/js/vfs_fonts.js"></script>
+<p style="color:red;">* ITC HS Code of the Commodity is either dropped or re-allocated and the unit of the commodity may be changed from April 2026.</p>
+<div class="row">
+    <div class="col-md-6"><p><b>Commodity:&nbsp;71012200&nbsp;CULTURED PEARLS WORKED&nbsp;Unit:&nbsp;KGS</b></p></div>
+    <div class="col-md-6">
+<p style="text-align: right;"><b>Report Dated: 20 Aug 2026&nbsp;||&nbsp;
+                       Values in US $ Million ||
+                                           (R) Revised Final
+                    
+                                        (R) Revised Final
+                    </b>
+                </p>
+                </div>
+</div>
+<table id="example1"  class="table table-bordered border-primary"  style="width:100%">
+    <thead>
+        <tr style="background: #29d; text-align:center; color: #fff;">
+                        <th>S.No.</th>
+                        <th>Country</th>
+                        <th>Jan-2021
+                                                (R) 
+                                            </th>
+                        <th>Jan-2022
+                                                (R) 
+                                            </th>
+                        <th>%Growth</th>
+                                                <th>Apr-Jan2021
+                                                (R) 
+                                            </th>
+                        <th>Apr-Jan2022
+                                                (R) 
+                                            </th>
+                                                <th>%Growth</th>
+                    </tr>
+    </thead>
+    <tbody>
+                                        <tr>
+                    <td style="text-align:center;">1</td>
+                    <td style="text-align:left;">AUSTRALIA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.01                    </td>
+                    <td style="text-align:right;">
+                        0.03                    </td>
+                    <td style="text-align:right;">
+                        224.25                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">2</td>
+                    <td style="text-align:left;">BAHARAIN IS</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">3</td>
+                    <td style="text-align:left;">BELGIUM</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">4</td>
+                    <td style="text-align:left;">BRAZIL</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">5</td>
+                    <td style="text-align:left;">CANADA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        518,991.67                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">6</td>
+                    <td style="text-align:left;">CHILE</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">7</td>
+                    <td style="text-align:left;">CHINA P RP</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">8</td>
+                    <td style="text-align:left;">COLOMBIA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">9</td>
+                    <td style="text-align:left;">DENMARK</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        232.98                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">10</td>
+                    <td style="text-align:left;">ESTONIA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.01                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">11</td>
+                    <td style="text-align:left;">FRANCE</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        347.89                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">12</td>
+                    <td style="text-align:left;">GERMANY</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        -82.23                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">13</td>
+                    <td style="text-align:left;">GREECE</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        190.83                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">14</td>
+                    <td style="text-align:left;">HONG KONG</td>
+                                        <td style="text-align:right;">0.01</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -99.81                    </td>
+                    <td style="text-align:right;">
+                        0.02                    </td>
+                    <td style="text-align:right;">
+                        0.18                    </td>
+                    <td style="text-align:right;">
+                        744.44                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">15</td>
+                    <td style="text-align:left;">ICELAND</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">16</td>
+                    <td style="text-align:left;">INDONESIA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">17</td>
+                    <td style="text-align:left;">ISRAEL</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">18</td>
+                    <td style="text-align:left;">ITALY</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        199.87                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">19</td>
+                    <td style="text-align:left;">JAPAN</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.03</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.03                    </td>
+                    <td style="text-align:right;">
+                        0.05                    </td>
+                    <td style="text-align:right;">
+                        99.13                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">20</td>
+                    <td style="text-align:left;">KOREA RP</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">21</td>
+                    <td style="text-align:left;">KUWAIT</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        1,511.48                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">22</td>
+                    <td style="text-align:left;">NETHERLAND</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">23</td>
+                    <td style="text-align:left;">NEW ZEALAND</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">24</td>
+                    <td style="text-align:left;">NORWAY</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">25</td>
+                    <td style="text-align:left;">OMAN</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">26</td>
+                    <td style="text-align:left;">PERU</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">27</td>
+                    <td style="text-align:left;">PHILIPPINES</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">28</td>
+                    <td style="text-align:left;">PORTUGAL</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">29</td>
+                    <td style="text-align:left;">QATAR</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        -50.62                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">30</td>
+                    <td style="text-align:left;">RUSSIA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">31</td>
+                    <td style="text-align:left;">SAUDI ARAB</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">32</td>
+                    <td style="text-align:left;">SINGAPORE</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">33</td>
+                    <td style="text-align:left;">SOUTH AFRICA</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        240.37                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">34</td>
+                    <td style="text-align:left;">SPAIN</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        7,183.88                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">35</td>
+                    <td style="text-align:left;">SWEDEN</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">36</td>
+                    <td style="text-align:left;">SWITZERLAND</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        112.48                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">37</td>
+                    <td style="text-align:left;">THAILAND</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.01                    </td>
+                    <td style="text-align:right;">
+                        241.43                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">38</td>
+                    <td style="text-align:left;">TURKEY</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">39</td>
+                    <td style="text-align:left;">U ARAB EMTS</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        568.69                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">40</td>
+                    <td style="text-align:left;">U K</td>
+                                        <td style="text-align:right;">0.01</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -85.18                    </td>
+                    <td style="text-align:right;">
+                        0.04                    </td>
+                    <td style="text-align:right;">
+                        0.03                    </td>
+                    <td style="text-align:right;">
+                        -9.28                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">41</td>
+                    <td style="text-align:left;">U S A</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -51.88                    </td>
+                    <td style="text-align:right;">
+                        0.01                    </td>
+                    <td style="text-align:right;">
+                        0.03                    </td>
+                    <td style="text-align:right;">
+                        132.25                    </td>
+                    
+                </tr>
+                                                <tr>
+                    <td style="text-align:center;">42</td>
+                    <td style="text-align:left;">VIETNAM SOC REP</td>
+                                        <td style="text-align:right;">0.00</td>
+                    <td style="text-align:right;">0.00</td>
+                    
+                    <td style="text-align:right;">
+                        -                     </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                        0.00                    </td>
+                    <td style="text-align:right;">
+                         -                     </td>
+                    
+                </tr>
+                                                <tfoot>
+                    <tr>
+                    <td></td>
+                    <td style="text-align:left;"><strong>Total</strong></td>
+                    <td align=right><strong>0.03</strong></td>
+                    <td align=right><strong>0.04</strong></td>
+                    <td align=right><strong>
+                        10.05</strong></td>
+                    <td align=right><strong>0.13</strong></td>
+                    <td align=right><strong>0.37</strong></td>
+                    <td align=right><strong>
+                        188.61</strong></td>
+                </tr>
+                </tfoot>
+    </tbody>
+</table>
+
+
+            <br>
+        </div>
+    </div>
+                  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">HS Code Search</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+            <div class="row" >
+                <div class="col-md-5">
+                    <label>HS Code:</label>
+                    <input type="text" id="hscode_value" class="form-control" name="hscode_value" placeholder="Enter HS Code" onkeydown="return isNumeric(event.keyCode);" onkeyup="keyUP(event.keyCode)" maxlength="8">
+                </div>
+                <div class="col-md-5">
+                    <label>Description:</label>
+                    <input type="text" id="description_value" class="form-control" name="description_value" placeholder="Enter Description">
+                </div>
+                <div class="col-md-2">
+                    <br>                    
+                    <button type="button" id="hscode_fetch"  class="btn btn-primary">Search</button>
+                </div>
+                <p style="color:red;">* ITC HS Code of the Commodity is either dropped or re-allocated and the unit of the commodity may be changed from April 2026.</p>
+                <div id="data"></div>
+
+                
+            </div>
+               
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<meta name="csrf-token" content="QjI0CKQC184RMkYepRsUPcRmHYCNjhjmWVJJicVV">
+<script type="text/javascript">
+$(document).on('click', '#hscode_fetch', function (e) {
+    e.preventDefault();
+
+    // First get new token
+    $.get('/refresh-csrf', function(res) {
+
+        $.ajax({
+            url: "https://tradestat.commerce.gov.in/meidb/hscode",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': res.token
+            },
+            data: {
+                _token: res.token,
+                hscode: $('#hscode_value').val(),
+                description: $('#description_value').val()
+            },
+            success: function(response) {
+
+    $('#data').empty();
+
+    if (!response || response.length === 0) {
+        $('#data').html(
+            '<div class="alert alert-warning">No records found.</div>'
+        );
+        return;
+    }
+
+    let html = '<table class="table table-bordered">';
+    html += '<tr><th>HSCode</th><th>Unit</th><th>Description</th></tr>';
+
+    $.each(response, function(i, item) {
+        html += '<tr>';
+        html += '<td style="text-align:left;">' + item.HSCODE + '</td>';
+        html += '<td style="text-align:left;">' + item.UNIT + '</td>';
+        html += '<td style="text-align:left;">' + item.DESCRiption + '</td>';
+        html += '</tr>';
+    });
+
+    html += '</table>';
+
+    $('#data').html(html);
+}
+        });
+
+    });
+
+});
+</script>
+    <script>
+        function isNumeric(keyCode) {
+        if (keyCode == 16)
+            //NumLock = false;
+            isShift = true;
+        return ((keyCode >= 48 && keyCode <= 57) || keyCode == 8 || keyCode == 46 || (keyCode >= 96 && keyCode <= 105))
+    }
+    $(document).ready(function () {
+        $("#btnExport").click(function () {
+            let table = document.getElementsByTagName("table");
+            console.log(table);
+            debugger;
+            TableToExcel.convert(table[0], {
+                name: `meidb-Commoditywise-all-countries-export.xlsx`,
+                sheet: {
+                    name: 'meidb-Commoditywise-all-countries-export'
+                }
+            });
+        });
+    });
+</script>     
+</div>
+  
+  <div class="container-fluid" style=" margin-top: auto; background-color: white; color: white; text-align: center;padding-top: 10px; padding-bottom: 10px;">
+    <div class="row">
+      <div class="col-md-12">        
+<button type="button" class="btn btn-link"   id="liveAlertBtn">Data Source</button>
+<button type="button" class="btn btn-link"  id="Metadata">Metadata on DGCI&S</button>
+<button type="button" class="btn btn-link"  id="Ownership">Ownership</button>
+<button type="button" class="btn btn-link"  id="feedback">feedback</button>
+<button type="button" class="btn btn-link"  id="Disclaimer">Disclaimer</button>
+<button type="button" class="btn btn-link"  id="help">help</button>
+<div id="liveAlertPlaceholder"></div>
+<script type="text/javascript">
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+
+const appendAlert = (message, type) => {
+  // Clear any existing alert before adding a new one
+  alertPlaceholder.innerHTML = '';
+
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = `
+    <div style="background-color: white; color: black;" class="alert alert-${type} alert-dismissible" role="alert">
+      <div style="background-color: white; color: black; text-align: left;">${message}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  `;
+
+  alertPlaceholder.append(wrapper);
+};
+
+const alertTrigger = document.getElementById('liveAlertBtn');
+if (alertTrigger) {
+  alertTrigger.addEventListener('click', () => {
+    appendAlert('<b>Data Source:</b>&nbsp;DGCI&S, Kolkata (<a href="https://www.dgciskol.gov.in" target="_blank">https://www.dgciskol.gov.in)</a>', 'success');
+  });
+}
+
+
+const alertMetadata = document.getElementById('Metadata')
+if (alertMetadata) {
+  alertMetadata.addEventListener('click', () => {
+    appendAlert('<b>Metadata on DGCI&S:</b>&nbsp;(<a href="https://www.dgciskol.gov.in/writereaddata/Downloads/20251010175904NMDS.pdf" target="_blank">https://www.dgciskol.gov.in/writereaddata/Downloads/20251010175904NMDS.pdf </a>)', 'success')
+  })
+}
+const alertOwnership = document.getElementById('Ownership')
+if (alertOwnership) {
+  alertOwnership.addEventListener('click', () => {
+    appendAlert('<b>Ownership :</b> Website belongs to Department of Commerce. Designed ,Developed & Hosted by National Informatics Centre', 'success')
+  })
+}
+const alertfeedback = document.getElementById('feedback')
+if (alertfeedback) {
+  alertfeedback.addEventListener('click', () => {
+    appendAlert('<b>Feedback/Suggestions:</b> itcell-doc[at]gov[dot]in', 'success')
+  })
+}
+
+const alertDisclaimer = document.getElementById('Disclaimer')
+if (alertDisclaimer) {
+  alertDisclaimer.addEventListener('click', () => {
+    appendAlert('<b>Disclaimer:</b> The data refrenced in the system do not have any legal sanctity and is for general refrence only. The user may like to verify official publications for DGCI&S, Kolkata for any further refrence', 'success')
+  })
+}
+
+const alerthelp = document.getElementById('help')
+const note = `NOTE: 1. Following are clarifications for ITC HS Code and UNIT of commodities:<br>
+
+           (a) ITC HS Code of the Commodity is from latest HS Code Directory provided by DGCIS Kolkata on April 2024.<br>
+
+           (b) The UNIT of the commodity may be changed from April 2024 onward (e.g. If the unit of a commodity is KGS in April 2024, it might be TON before the April 2024)<br>
+
+           (c) Unit of commodity is available only at 8 digit level.<br>
+
+           (d) The old HS Code may be either dropped or re-allocated.<br>
+
+           (e).Commodity Description prefixed with * represents that the commodity is dropped from HS Code Directory from April 2024.onwards.<br><br>
+
+           2. India’s Imports/Exports include re-imports/re-exports also.<br><br>
+
+           3. Imports/Exports from unspecified country includes<br>
+
+           (a) Trade transactions where country of origin/consignment/destination is not specified or invalid country codes have been assigned in the customs declaration.<br>
+
+           (b) All re-imported/re-exported transactions which fulfill condition (a) above.<br><br>
+
+           4.Search Specific Commodity: Click on Search link<br><br>
+
+           5.Search on HS Code:<br>
+
+           (a) For Searching all HS Code and Commodities under a 2 digit code, enter desired 2 digit code and click Submit button.<br>
+
+           (b) For Searching all HS Code and Commodities under a 4 digit code, enter desired 4 digit code and click Submit button.<br>
+
+           (c) For Searching all HS Code and Commodities under a 6 digit code, enter desired 6 digit code and click Submit button.<br><br>
+
+           6.Search on Description: For searching any commodity, enter a string (3 or more characters) in the description field and click the Submit button. All commodities with their HS Code which contains the given string in their description will be displayed.`;
+if (alerthelp) {
+  alerthelp.addEventListener('click', () => {
+    appendAlert(note, 'success')
+  })
+}
+</script>
+      </div>
+      
+    </div>
+  </div>
+
+</body>
+</html>
+
