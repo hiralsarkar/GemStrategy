@@ -54,6 +54,12 @@ GemStrategy turns the raw government reports into a structured, queryable, and v
 - **Grain**: Commodity x Country x Month x Trade Flow
 - Raw government reports are kept in full (`gemstrategy_data/raw/`) so every number in the dashboard can be traced back to its source. Nothing is estimated, interpolated, or filled in for missing observations.
 
+## The wide-to-long problem
+
+TRADESTAT's own reports store each month as a column header, not a row value - a report for one commodity looks like `Country | Jun-2025 (R) | Jun-2026 (F) | %Growth | Apr-Jun2025 (R) | Apr-Jun2026 (F)`. That's wide format, built for a human to scan across a page, and the header text isn't even stable: the revision-status suffix (`R` = Revised, `F` = Final, `P` = Provisional) changes from one report to the next.
+
+For time-series analysis, month needs to be a value sitting in a column, not a column name - the standard "tidy data" shape (one variable per column, one observation per row). Since every report I fetched already corresponds to exactly one requested month, the fix wasn't a generic reshape - it was picking out, with certainty, the one column that actually matched the month being asked for. `value_column()` in `build_pearl_trade_csvs.py` does that with a regex match on the month-year text regardless of the `(R)/(F)/(P)` suffix, and raises an error if it finds zero or more than one match, rather than silently grabbing the wrong column. Every one of the 2,040 single-month extracts is then stacked into one long table with explicit `year`, `month_number`, and `period_date` columns - functionally the same operation as `pandas.melt()`, done via select-and-concatenate across files instead of a single call, because the source data arrived pre-split one month per report.
+
 ## Architecture
 
 ```
