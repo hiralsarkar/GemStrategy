@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Raw scraped TRADESTAT reports kept for data provenance, not authored HTML -
+# exclude from GitHub's language detection so the repo's language stats
+# reflect the actual Python pipeline instead of scraped source pages.
+gemstrategy_data/raw/** linguist-vendored
+gemstrategy_data/raw/** linguist-generated=true
+
+# Curated/model output data, not source code
+gemstrategy_data/curated/** linguist-vendored
+gemstrategy_data/powerbi_import/** linguist-vendored
+gemstrategy_data/extraction_manifest.jsonl linguist-vendored
