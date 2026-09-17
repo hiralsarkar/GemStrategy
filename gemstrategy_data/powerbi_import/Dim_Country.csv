@@ -1,0 +1,132 @@
+﻿country_key,country_name,map_display_name,region,is_total
+AFGHANISTAN,Afghanistan,Afghanistan,Asia,0
+ALBANIA,Albania,Albania,Europe,0
+ARGENTINA,Argentina,Argentina,South America,0
+ARMENIA,Armenia,Armenia,Asia,0
+ARUBA,Aruba,Aruba,North America,0
+AUSTRALIA,Australia,Australia,Oceania,0
+AUSTRIA,Austria,Austria,Europe,0
+BAHAMAS,Bahamas,Bahamas,North America,0
+BAHARAIN IS,Baharain Is,Bahrain,Asia,0
+BANGLADESH PR,Bangladesh Pr,Bangladesh,Asia,0
+BELGIUM,Belgium,Belgium,Europe,0
+BERMUDA,Bermuda,Bermuda,North America,0
+BHUTAN,Bhutan,Bhutan,Asia,0
+BOTSWANA,Botswana,Botswana,Africa,0
+BRAZIL,Brazil,Brazil,South America,0
+BRUNEI,Brunei,Brunei,Asia,0
+BULGARIA,Bulgaria,Bulgaria,Europe,0
+BURUNDI,Burundi,Burundi,Africa,0
+CANADA,Canada,Canada,North America,0
+CAYMAN IS,Cayman Is,Cayman Islands,North America,0
+CHILE,Chile,Chile,South America,0
+CHINA P RP,China P Rp,China,Asia,0
+COLOMBIA,Colombia,Colombia,South America,0
+CONGO D. REP.,Congo D. Rep.,Democratic Republic of the Congo,Africa,0
+CONGO P REP,Congo P Rep,Republic of the Congo,Africa,0
+COSTA RICA,Costa Rica,Costa Rica,North America,0
+CROATIA,Croatia,Croatia,Europe,0
+CYPRUS,Cyprus,Cyprus,Europe,0
+CZECH REPUBLIC,Czech Republic,Czech Republic,Europe,0
+DENMARK,Denmark,Denmark,Europe,0
+DJIBOUTI,Djibouti,Djibouti,Africa,0
+DOMINIC REP,Dominic Rep,Dominican Republic,North America,0
+ECUADOR,Ecuador,Ecuador,South America,0
+EGYPT A RP,Egypt A Rp,Egypt,Africa,0
+EL SALVADOR,El Salvador,El Salvador,North America,0
+ESTONIA,Estonia,Estonia,Europe,0
+ETHIOPIA,Ethiopia,Ethiopia,Africa,0
+FIJI IS,Fiji Is,Fiji,Oceania,0
+FINLAND,Finland,Finland,Europe,0
+FRANCE,France,France,Europe,0
+GEORGIA,Georgia,Georgia,Asia,0
+GERMANY,Germany,Germany,Europe,0
+GHANA,Ghana,Ghana,Africa,0
+GIBRALTAR,Gibraltar,Gibraltar,Europe,0
+GREECE,Greece,Greece,Europe,0
+GREENLAND,Greenland,Greenland,North America,0
+GUAM,Guam,Guam,Oceania,0
+GUATEMALA,Guatemala,Guatemala,North America,0
+GUINEA,Guinea,Guinea,Africa,0
+HONDURAS,Honduras,Honduras,North America,0
+HONG KONG,Hong Kong,Hong Kong,Asia,0
+HUNGARY,Hungary,Hungary,Europe,0
+ICELAND,Iceland,Iceland,Europe,0
+INDONESIA,Indonesia,Indonesia,Asia,0
+IRELAND,Ireland,Ireland,Europe,0
+ISRAEL,Israel,Israel,Asia,0
+ITALY,Italy,Italy,Europe,0
+JAPAN,Japan,Japan,Asia,0
+JORDAN,Jordan,Jordan,Asia,0
+KAZAKHSTAN,Kazakhstan,Kazakhstan,Asia,0
+KENYA,Kenya,Kenya,Africa,0
+KOREA RP,Korea Rp,South Korea,Asia,0
+KUWAIT,Kuwait,Kuwait,Asia,0
+KYRGHYZSTAN,Kyrghyzstan,Kyrgyzstan,Asia,0
+LATVIA,Latvia,Latvia,Europe,0
+LEBANON,Lebanon,Lebanon,Asia,0
+LIBERIA,Liberia,Liberia,Africa,0
+LIECHTENSTEIN,Liechtenstein,Liechtenstein,Europe,0
+LITHUANIA,Lithuania,Lithuania,Europe,0
+LUXEMBOURG,Luxembourg,Luxembourg,Europe,0
+MACAO,Macao,Macao,Asia,0
+MADAGASCAR,Madagascar,Madagascar,Africa,0
+MALAWI,Malawi,Malawi,Africa,0
+MALAYSIA,Malaysia,Malaysia,Asia,0
+MALDIVES,Maldives,Maldives,Asia,0
+MALTA,Malta,Malta,Europe,0
+MAURITIUS,Mauritius,Mauritius,Africa,0
+MEXICO,Mexico,Mexico,North America,0
+MOLDOVA,Moldova,Moldova,Europe,0
+MONACO,Monaco,Monaco,Europe,0
+MONGOLIA,Mongolia,Mongolia,Asia,0
+MONTENEGRO,Montenegro,Montenegro,Europe,0
+MOROCCO,Morocco,Morocco,Africa,0
+MOZAMBIQUE,Mozambique,Mozambique,Africa,0
+MYANMAR,Myanmar,Myanmar,Asia,0
+NEPAL,Nepal,Nepal,Asia,0
+NETHERLAND,Netherland,Netherlands,Europe,0
+NETHERLANDANTIL,Netherlandantil,Netherlands Antilles,North America,0
+NEW CALEDONIA,New Caledonia,New Caledonia,Oceania,0
+NEW ZEALAND,New Zealand,New Zealand,Oceania,0
+NIGERIA,Nigeria,Nigeria,Africa,0
+NORWAY,Norway,Norway,Europe,0
+OMAN,Oman,Oman,Asia,0
+PANAMA REPUBLIC,Panama Republic,Panama,North America,0
+PERU,Peru,Peru,South America,0
+PHILIPPINES,Philippines,Philippines,Asia,0
+POLAND,Poland,Poland,Europe,0
+PORTUGAL,Portugal,Portugal,Europe,0
+PUERTO RICO,Puerto Rico,Puerto Rico,North America,0
+QATAR,Qatar,Qatar,Asia,0
+ROMANIA,Romania,Romania,Europe,0
+RUSSIA,Russia,Russia,Europe,0
+RWANDA,Rwanda,Rwanda,Africa,0
+SAUDI ARAB,Saudi Arab,Saudi Arabia,Asia,0
+SINGAPORE,Singapore,Singapore,Asia,0
+SLOVAK REP,Slovak Rep,Slovakia,Europe,0
+SLOVENIA,Slovenia,Slovenia,Europe,0
+SOMALIA,Somalia,Somalia,Africa,0
+SOUTH AFRICA,South Africa,South Africa,Africa,0
+SPAIN,Spain,Spain,Europe,0
+SRI LANKA DSR,Sri Lanka Dsr,Sri Lanka,Asia,0
+SWAZILAND,Swaziland,Swaziland,Africa,0
+SWEDEN,Sweden,Sweden,Europe,0
+SWITZERLAND,Switzerland,Switzerland,Europe,0
+TAIWAN,Taiwan,Taiwan,Asia,0
+TANZANIA REP,Tanzania Rep,Tanzania,Africa,0
+THAILAND,Thailand,Thailand,Asia,0
+TURKEY,Turkey,Turkey,Asia,0
+U ARAB EMTS,U Arab Emts,United Arab Emirates,Asia,0
+U K,U K,United Kingdom,Europe,0
+U S A,U S A,United States,North America,0
+UKRAINE,Ukraine,Ukraine,Europe,0
+UNION OF SERBIA & MONTENEGRO,Union Of Serbia & Montenegro,Serbia,Europe,0
+UNSPECIFIED,Unspecified,,Unspecified,0
+URUGUAY,Uruguay,Uruguay,South America,0
+US MINOR OUTLYING ISLANDS,Us Minor Outlying Islands,United States Minor Outlying Islands,Oceania,0
+UZBEKISTAN,Uzbekistan,Uzbekistan,Asia,0
+VIETNAM SOC REP,Vietnam Soc Rep,Vietnam,Asia,0
+VIRGIN IS US,Virgin Is Us,U.S. Virgin Islands,North America,0
+ZAMBIA,Zambia,Zambia,Africa,0
+TOTAL,(TOTAL - All Countries),,Unspecified,1

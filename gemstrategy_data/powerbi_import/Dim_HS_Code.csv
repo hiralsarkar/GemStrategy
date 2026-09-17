@@ -1,0 +1,11 @@
+﻿hs_code,commodity_name,commodity_group,description,worked_status
+71011010,Natural Pearls,Pearl,Natural (real) pearls - unworked,Unworked / Simply Sawn
+71011020,Natural Pearls,Pearl,Natural (real) pearls - worked,Otherwise Worked
+71012100,Cultured Pearls,Pearl,Cultured pearls - unworked,Unworked / Simply Sawn
+71012200,Cultured Pearls,Pearl,Cultured pearls - worked,Otherwise Worked
+71031031,Emerald,Coloured Gemstone,Emerald - unworked or simply sawn or roughly shaped,Unworked / Simply Sawn
+71039130,Emerald,Coloured Gemstone,Emerald - otherwise worked,Otherwise Worked
+71031041,Ruby,Coloured Gemstone,Ruby - unworked or simply sawn or roughly shaped,Unworked / Simply Sawn
+71039110,Ruby,Coloured Gemstone,Ruby - otherwise worked,Otherwise Worked
+71031042,Sapphire,Coloured Gemstone,Sapphire - unworked or simply sawn or roughly shaped,Unworked / Simply Sawn
+71039120,Sapphire,Coloured Gemstone,Sapphire - otherwise worked,Otherwise Worked
