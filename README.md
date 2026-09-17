@@ -1,5 +1,11 @@
 # GemStrategy
 
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Wrangling-150458?logo=pandas&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Data%20Model-07405E?logo=sqlite&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
+![Data Source](https://img.shields.io/badge/Data-TRADESTAT-0F6E56)
+
 **An end-to-end trade intelligence platform for India's Pearl & Coloured Gemstone ecosystem**, built on real government trade data, automated data engineering, a SQL data model, and a Power BI analytics layer.
 
 Covers **Natural Pearls, Cultured Pearls, Emerald, Ruby, and Sapphire** - India's monthly import/export activity by partner country, sourced directly from the Government of India's Department of Commerce (TRADESTAT), January 2018 through June 2026.
