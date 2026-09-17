@@ -90,6 +90,12 @@ Then refresh the `.pbix` in Power BI Desktop (Home -> Refresh) - it reads from `
 
 Every rebuild runs through automated checks: expected report coverage (2,040/2,040 report-months present), currency consistency, duplicate/null detection on the fact tables, and country-label review. Full detail in [gemstrategy_data/validation_report.md](gemstrategy_data/validation_report.md).
 
+**A real bug the validation caught**: one report-month (Cultured Pearls import, June 2026) had been fetched in Rupee Crore instead of US Dollar Million during an early pilot run, which would have shown up in the dashboard as roughly 9x its true value. The validator's currency-selector check flagged it; it was re-fetched with the correct selector and the affected curated files were rebuilt.
+
+**Beyond internal consistency**, two further checks confirm the data itself, not just the pipeline's logic:
+- Reconciled partner-country sums against the government's own published Total row across all 1,701 report-months in the dataset - only one exceeds a 0.05 USD-million tolerance, and that's within the government's own rounding.
+- Re-fetched five report-months live from TRADESTAT during a later audit and compared them directly against the curated values already on disk - all five matched exactly, including a Total row and partner-country figures spanning 2020 to 2026.
+
 ## Stack
 
 Python (pandas, requests, BeautifulSoup, lxml) for collection and transformation - SQLite for the data model - Power BI and DAX for analysis and visualization.
