@@ -59,8 +59,6 @@ gemstrategy_data/  (curated fact tables + a SQL star schema)
 **Star schema**: `Dim_Date`, `Dim_Country` (131 countries, region-mapped), `Dim_HS_Code` (commodity name/group folded in - no separate junk dimensions), and `Fact_Trade` (37K+ rows). Available as a SQLite database and as plain CSVs.
 
 
-```
-
 ## Rebuilding the data
 
 ```bat
