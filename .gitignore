@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+*.tmp
+
+# Build scaffolding used while making the dashboard - not part of the
+# delivered project (guide docs, background source asset, Tabular Editor
+# scripts). The finished measures/pages already live in the .pbix itself.
+powerbi/
