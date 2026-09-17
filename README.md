@@ -58,27 +58,7 @@ gemstrategy_data/  (curated fact tables + a SQL star schema)
 
 **Star schema**: `Dim_Date`, `Dim_Country` (131 countries, region-mapped), `Dim_HS_Code` (commodity name/group folded in - no separate junk dimensions), and `Fact_Trade` (37K+ rows). Available as a SQLite database and as plain CSVs.
 
-## Repository layout
 
-```
-GemStrategy Dashboard.pbix     The dashboard
-docs/
-  Gemstrategy Project Proposal (CP1) Hiral Sarkar.pdf   Project scope document
-  screenshots/                 Dashboard page captures (this README)
-scripts/                       Data pipeline, run in this order
-  gemstrategy_tradestat_USD_FIXED.py    TRADESTAT collector
-  build_pearl_trade_csvs.py             Raw HTML -> curated pearl data
-  build_gemstrategy_trade_csvs.py       + Emerald/Ruby/Sapphire -> combined dataset
-  validate_gemstrategy_data.py          Data-quality checks
-  build_sql_model.py                    Curated data -> SQL star schema
-gemstrategy_data/
-  raw/                          Untouched TRADESTAT HTML responses (full provenance)
-  curated/                      Clean fact tables by commodity/flow
-  powerbi_import/               The star schema as CSVs (Dim_Date, Dim_Country, Dim_HS_Code, Fact_Trade)
-  gemstrategy.db                Same model as SQLite
-  validation_report.md          Current data-quality state
-hs_codes.csv                   The 10 HS codes in scope
-requirements_gemstrategy.txt   Python dependencies
 ```
 
 ## Rebuilding the data
