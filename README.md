@@ -102,6 +102,13 @@ Every rebuild runs through automated checks: expected report coverage (2,040/2,0
 
 **Emerging-market classification**: a market isn't "emerging" just because it grew fast last month - a country going from $2,000 to $12,000 in trade is a 500% headline with no real weight behind it. The classification instead combines three signals: trailing 12-month trade size, trailing 12-month growth rate, and persistence (how many of the last 12 months actually had recorded trade). Only markets that clear a size floor and show sustained, not one-off, growth get labeled Emerging; small, sporadic activity is labeled a Watchlist candidate at best.
 
+## Limitations
+
+- **India's trade only, not global market share.** "Market share" here means share of India's own import/export activity - there's no UN Comtrade or global benchmark data in this project, so it can't say what fraction of *worldwide* pearl or gemstone trade India represents.
+- **Country-level, not transaction-level.** A country ranking high, like Hong Kong or Belgium, is plausibly re-export or cutting-hub activity rather than final consumption - the data can't distinguish the two.
+- **Value only, no quantity.** TRADESTAT reports quantity and value as separate selectors; only value (USD Million) was collected. That means a rise in trade value could be more volume, a higher price per unit, or both - the two aren't separated in this dataset.
+- **HS classifications can shift over time.** TRADESTAT itself notes that HS codes can be dropped, reallocated, or have their reporting unit changed - the `hs_codes.csv` master list reflects the classification in effect for this collection window, not a permanently fixed scheme.
+
 ## Stack
 
 Python (pandas, requests, BeautifulSoup, lxml) for collection and transformation - SQLite for the data model - Power BI and DAX for analysis and visualization.
