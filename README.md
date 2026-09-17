@@ -96,6 +96,12 @@ Every rebuild runs through automated checks: expected report coverage (2,040/2,0
 - Reconciled partner-country sums against the government's own published Total row across all 1,701 report-months in the dataset - only one exceeds a 0.05 USD-million tolerance, and that's within the government's own rounding.
 - Re-fetched five report-months live from TRADESTAT during a later audit and compared them directly against the curated values already on disk - all five matched exactly, including a Total row and partner-country figures spanning 2020 to 2026.
 
+## Methodology notes
+
+**Concentration (HHI)**: the Herfindahl-Hirschman Index - sum of each country's squared market share, on a 0-10,000 scale - measures how dependent India's trade in a commodity is on a small number of partners. Below 1,500 is read as diversified, above 2,500 as highly concentrated. Applied separately to import suppliers and export destinations.
+
+**Emerging-market classification**: a market isn't "emerging" just because it grew fast last month - a country going from $2,000 to $12,000 in trade is a 500% headline with no real weight behind it. The classification instead combines three signals: trailing 12-month trade size, trailing 12-month growth rate, and persistence (how many of the last 12 months actually had recorded trade). Only markets that clear a size floor and show sustained, not one-off, growth get labeled Emerging; small, sporadic activity is labeled a Watchlist candidate at best.
+
 ## Stack
 
 Python (pandas, requests, BeautifulSoup, lxml) for collection and transformation - SQLite for the data model - Power BI and DAX for analysis and visualization.
