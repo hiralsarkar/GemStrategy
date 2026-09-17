@@ -30,6 +30,16 @@ Emerald, Ruby, and Sapphire trade composition, concentration, and key trading pa
 
 ---
 
+## What the data shows
+
+Numbers pulled directly off the dashboard's Overview page, Jan 2018 - Jun 2026:
+
+- **Total trade**: $6.39bn across the five commodities (Imports $4.28bn, Exports $2.11bn, Trade Balance -$2.16bn)
+- **Leading commodity**: Emerald ($3.2bn), ahead of Ruby ($2.4bn), Cultured Pearls ($0.4bn), Sapphire ($0.3bn), Natural Pearls ($0.1bn)
+- **Partner concentration**: Hong Kong alone accounts for 49% of India's top-5-country trade share - Zambia (10%), Armenia (9%), Thailand (8%), and the USA (6%) make up most of the rest
+- **Top import source and export destination are the same country**: Hong Kong, $2.09bn of imports and $1.03bn of exports - a strong signal that a lot of this trade is routing through a re-export/cutting hub rather than reflecting final consumption
+- **Highest-scoring emerging markets**: Belgium (79), UAE (71), Thailand (65) and Hong Kong (65), ranked by the size + growth + persistence rule below, not by raw growth percentage
+
 ## Why this exists
 
 Public commentary on India's gems and jewellery trade skews heavily toward diamonds and precious metals. Pearls and coloured gemstones get far less granular analysis, even though official trade statistics already contain everything needed to answer real business questions: where India sources from, where it sells to, which markets are genuinely growing versus just noisy, and how concentrated (and therefore risky) that trade is.
